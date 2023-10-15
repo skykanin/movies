@@ -27,6 +27,9 @@ const Hero = ({movies}) => {
                                             <div className='movie-description'>
                                                 <p>{movie.overview}</p>
                                             </div>
+                                            <div className='movie-rating'>
+                                                <h4>{movie.imdbRating} / 10</h4>
+                                            </div>
                                         </div>
 
                                     </div>

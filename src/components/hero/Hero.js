@@ -6,8 +6,14 @@ import { Paper } from '@mui/material';
 const Hero = ({movies}) => {
   return (
     <div className='movie-carousel-container'>
-        <h1>Top 10 rated movies</h1>
-        <Carousel autoPlay={false} swipe={false} navButtonsAlwaysVisible={true} duration={0}>
+        <h1 className='custom-header'>Top Rated Movies</h1>
+        <Carousel autoPlay={true} 
+        swipe={false} 
+        navButtonsAlwaysVisible={true} 
+        duration={200} 
+        stopAutoPlayOnHover={true}
+        interval={7000}
+        animation='fade'>
             {
                 movies.map((movie) => {
                     return(
@@ -26,6 +32,9 @@ const Hero = ({movies}) => {
                                             </div>
                                             <div className='movie-description'>
                                                 <p>{movie.overview}</p>
+                                            </div>
+                                            <div className='movie-description'>
+                                                <p>{movie.genre}</p>
                                             </div>
                                             <div className='movie-rating'>
                                                 <h4>{movie.imdbRating} / 10</h4>

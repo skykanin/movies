@@ -14,11 +14,15 @@ const Hero = ({movies}) => {
                             <div className='movie-card-container'>
                                 <div className='movie-card'>
                                     <div className='movie-detail'>
-                                        <div className='movie-poster'>
-                                            <img src={movie.posterLink} alt=''/>
+                                        <div className='movie-poster-container'>
+                                            <div className='movie-poster'>
+                                                <img src={movie.posterLink} alt=''/>
+                                            </div>
                                         </div>
-                                        <div className='movie-title'>
-                                            <h4>{movie.seriesTitle}</h4>
+                                        <div className='movie-title-container'>
+                                            <div className='movie-title'>
+                                                <h4 className>{movie.seriesTitle}</h4>
+                                            </div>
                                         </div>
 
                                     </div>

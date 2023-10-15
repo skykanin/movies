@@ -6,7 +6,8 @@ import { Paper } from '@mui/material';
 const Hero = ({movies}) => {
   return (
     <div className='movie-carousel-container'>
-        <Carousel>
+        <h1>Top 10 rated movies</h1>
+        <Carousel autoPlay={false} swipe={false} navButtonsAlwaysVisible={true} duration={0}>
             {
                 movies.map((movie) => {
                     return(
@@ -19,9 +20,12 @@ const Hero = ({movies}) => {
                                                 <img src={movie.posterLink} alt=''/>
                                             </div>
                                         </div>
-                                        <div className='movie-title-container'>
+                                        <div className='movie-text-container'>
                                             <div className='movie-title'>
-                                                <h4 className>{movie.seriesTitle}</h4>
+                                                <h4>{movie.seriesTitle}</h4>
+                                            </div>
+                                            <div className='movie-description'>
+                                                <p>{movie.overview}</p>
                                             </div>
                                         </div>
 

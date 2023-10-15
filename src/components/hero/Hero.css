@@ -42,7 +42,7 @@
     width: 100%;
 }
 
-.movie-title-container {
+.movie-text-container {
     justify-content: center;
     align-items: center;
     width: 40%;
@@ -50,6 +50,12 @@
 
 .movie-title {
     color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-description {
+    color: rgb(200, 200, 200);
     justify-content: center;
     align-items: center;
 }

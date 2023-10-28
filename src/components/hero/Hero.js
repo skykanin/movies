@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Hero.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 
-const Hero = ({movies}) => {
+const Hero = () => {
+
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        fetch("http://192.168.1.71:8080/api/movies/dbmovies/top10")
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          setMovies(data)
+        })
+      }, [])
+
   return (
     <div className='movie-carousel-container'>
         <h1 className='custom-header'>Top Rated Movies</h1>

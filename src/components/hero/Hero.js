@@ -54,7 +54,7 @@ const Hero = () => {
                                                     <p>{movie.overview}</p>
                                                 </div>
                                                 <div className='movie-description'>
-                                                    <p>{movie.genre}</p>
+                                                    <p>{movie.genre.map((x) => x.name).join(", ")}</p>
                                                 </div>
                                                 <div className='movie-rating'>
                                                     <h4>{movie.imdbRating} / 10</h4>

@@ -28,17 +28,17 @@ const Hero = () => {
     return (
         <div className='movie-carousel-container'>
             <h1 className='custom-header'>Top Rated Movies</h1>
-            <Carousel autoPlay={true} 
-            swipe={false} 
-            navButtonsAlwaysVisible={true} 
-            duration={200} 
+            <Carousel autoPlay={true}
+            swipe={false}
+            navButtonsAlwaysVisible={true}
+            duration={200}
             stopAutoPlayOnHover={true}
             interval={7000}
             animation='fade'>
                 {
                     movies.map((movie) => {
                         return(
-                            <Link to = {"/movie/"+movie.movieID} style = {{ textDecoration: 'none' }}>
+                            <Link key ={movie.movieID} to = {"/movie/"+movie.movieID} style = {{ textDecoration: 'none' }}>
                             <Paper>
                                 <div className='movie-card-container'>
                                     <div className='movie-card'>

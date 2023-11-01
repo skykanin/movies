@@ -16,7 +16,7 @@ const MoviePage = () => {
         }).finally( () =>{
             setLoading(false)
         })
-    }, [])
+    }, [id])
 
     if (loading) {
         return <h1>LOADING...</h1>

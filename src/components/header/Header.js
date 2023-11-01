@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <Navbar variant="dark" expand="lg">
             <Container fluid>
-                <NavbarBrand as={NavLink} to="/home" style={{"color":'gold'}}>
+                <NavbarBrand as={NavLink} to="home" style={{"color":'gold'}}>
                     <FontAwesomeIcon icon ={faVideo}/> qwikk.movies
                 </NavbarBrand>
                 <NavbarToggle aria-controls="navbarScroll" />
@@ -21,9 +21,9 @@ const Header = () => {
                             style={{maxHeight: '100px'}}
                             navbarScroll
                         >
-                        <NavLink className ="nav-link" to="/home">Home</NavLink>
-                        <NavLink className ="nav-link" to="/browse">Browse</NavLink>
-                        <NavLink className ="nav-link" to="/watchList">Watch List</NavLink>
+                        <NavLink className ="nav-link" to="home">Home</NavLink>
+                        <NavLink className ="nav-link" to="browse">Browse</NavLink>
+                        <NavLink className ="nav-link" to="watchList">Watch List</NavLink>
                     </Nav>
                     <Button variant="outline-info" className="me-2">Login</Button>
                     <Button variant="outline-info">Register</Button>

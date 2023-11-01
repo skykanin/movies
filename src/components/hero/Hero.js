@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Hero.css';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 
@@ -37,6 +38,7 @@ const Hero = () => {
                 {
                     movies.map((movie) => {
                         return(
+                            <Link to = {"/movie/"+movie.movieID} style = {{ textDecoration: 'none' }}>
                             <Paper>
                                 <div className='movie-card-container'>
                                     <div className='movie-card'>
@@ -65,6 +67,7 @@ const Hero = () => {
                                     </div>
                                 </div>
                             </Paper>
+                            </Link>
                         )
                     })
                 }

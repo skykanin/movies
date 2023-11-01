@@ -1,8 +1,8 @@
 .movie-carousel-container {
     margin: auto;
-    margin-top: 5%;
+    margin-top: 1%;
     justify-content: center;
-    width: 50%;
+    width: 900px;
     background-color: rgb(24, 26, 27);
 }
 .movie-card-container {

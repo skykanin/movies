@@ -33,7 +33,7 @@ class MovieController(private val service: MovieService) {
     fun findTop10() = service.findTop10()
 
     @GetMapping("/id/{movieID}")
-    fun findById(@PathVariable movieID: Long): Optional<Movie> = service.findMovieId(movieID)
+    fun findById(@PathVariable movieID: Long) = service.findMovieId(movieID)
 
     @GetMapping("/title/{seriesTitle}")
     fun findByTitle(@PathVariable seriesTitle:String) = service.findMovieTitle(seriesTitle)

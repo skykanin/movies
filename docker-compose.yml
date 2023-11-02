@@ -24,5 +24,6 @@ services:
 
   frontend:
     build: ./frontend
+    container_name: movies_frontend
     ports:
       - 3000:3000

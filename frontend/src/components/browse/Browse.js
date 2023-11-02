@@ -24,7 +24,7 @@ const Browse = () => {
     }
 
     return (
-    <div class="container" style={{maxWidth: "80%"}}>
+    <div class="container" style={{maxWidth: "80%", marginTop: "10px"}}>
         <div class="row row-cols-3">
         {movies.map((movie) => {
                         return(

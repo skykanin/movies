@@ -24,6 +24,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
 
   frontend:
+    profiles: ["all"]
     build: ./frontend
     container_name: movies_frontend
     depends_on:

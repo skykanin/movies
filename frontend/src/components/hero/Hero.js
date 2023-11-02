@@ -27,7 +27,7 @@ const Hero = () => {
 
     return (
         <div className='movie-carousel-container'>
-            <h1 className='custom-header'>Top Rated Movies</h1>
+            <h2 className='custom-header'>Top Rated Movies</h2>
             <Carousel autoPlay={true}
             swipe={false}
             navButtonsAlwaysVisible={true}

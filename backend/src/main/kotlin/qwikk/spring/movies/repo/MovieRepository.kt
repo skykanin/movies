@@ -11,6 +11,6 @@ interface MovieRepository : JpaRepository<Movie, Long> {
 
     fun findByGenreName(name: String) : Iterable<Movie>
 
-    @Query("FROM Movie ORDER BY imdbRating DESC LIMIT 11")
+    @Query("FROM Movie ORDER BY imdbRating DESC LIMIT 10")
     fun findTop10Rated() : List<Movie>
 }

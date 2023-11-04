@@ -48,6 +48,6 @@ jib {
 		image = "eclipse-temurin:latest"
 	}
 	to {
-		image = "moviesbackend"
+		image = "movies-backend"
 	}
 }

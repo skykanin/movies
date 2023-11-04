@@ -12,7 +12,7 @@ services:
       - ./database/moviedbdata.sql:/docker-entrypoint-initdb.d/moviedbdata.sql
 
   backend:
-    image: moviesbackend
+    image: movies-backend
     container_name: movies_backend
     depends_on:
       - db

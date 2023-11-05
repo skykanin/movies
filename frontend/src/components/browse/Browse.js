@@ -8,7 +8,7 @@ const Browse = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://192.168.1.71:8080/api/movies/top10")
+        fetch("http://localhost:8080/api/movies/top10")
         .then(response => response.json())
         .then(data => {
           console.log(data)

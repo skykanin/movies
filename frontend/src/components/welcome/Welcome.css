@@ -1,0 +1,21 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 900px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.search-welcome {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 50px;
+}
+
+.search-bar {
+    display: flex;
+    text-align: left;
+}

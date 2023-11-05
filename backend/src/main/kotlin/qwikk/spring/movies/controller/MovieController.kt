@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import qwikk.spring.movies.model.Movie
 import qwikk.spring.movies.service.MovieService
-import java.util.*
 import kotlin.NoSuchElementException
 
 @RestController
@@ -33,10 +32,8 @@ class MovieController(private val service: MovieService) {
     fun findTop10() = service.findTop10()
 
     @GetMapping("/id/{movieID}")
-    fun findById(@PathVariable movieID: Long) : Optional<Movie> {
-        val movie = service.findMovieId(movieID)
-        if (movie.isEmpty) throw NoSuchElementException("Movie id not found!")
-        return movie
+    fun findById(@PathVariable movieID: Long): Movie = service.findMovieId(movieID).orElseThrow {
+        NoSuchElementException("Movie ID:$movieID not found!")
     }
 
     @GetMapping("/title/{seriesTitle}")

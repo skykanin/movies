@@ -6,10 +6,10 @@ import qwikk.spring.movies.model.Movie
 
 interface MovieRepository : JpaRepository<Movie, Long> {
 
-    fun findAllByOrderByImdbRatingDesc(): Iterable<Movie>
-    fun findBySeriesTitle(seriesTitle:String): Iterable<Movie>
+    fun findAllByOrderByImdbRatingDesc(): List<Movie>
+    fun findBySeriesTitle(seriesTitle:String): List<Movie>
 
-    fun findByGenreName(name: String): Iterable<Movie>
+    fun findByGenreName(name: String): List<Movie>
 
     @Query("FROM Movie ORDER BY imdbRating DESC LIMIT 10")
     fun findTop10Rated(): List<Movie>

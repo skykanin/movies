@@ -1,34 +1,10 @@
 import { Show, createResource } from "solid-js";
+import type { Movie } from "../../types";
 import "./MoviePage.css";
 
 const queryMovie: (id: number) => Promise<Movie> = (id) =>
   fetch(`http://localhost:8080/api/movies/id/${id}`)
     .then(res => res.json())
-
-type Genre = {
-  genreID: number;
-  name: string;
-};
-
-type Movie = {
-  movieID: number;
-  posterLink: string;
-  seriesTitle: string;
-  releasedYear: number;
-  certificate: string;
-  runtime: string;
-  genre: Genre[];
-  imdbRating: number;
-  overview: string;
-  metaScore: number;
-  director: string;
-  star1: string;
-  star2: string;
-  star3: string;
-  star4: string;
-  noOfVotes: number;
-  gross: string;
-};
 
 export default function MoviePage() {
   const [movie] = createResource(() => queryMovie(112));

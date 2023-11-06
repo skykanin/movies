@@ -1,0 +1,9 @@
+.grid-container {
+    width: 1400px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

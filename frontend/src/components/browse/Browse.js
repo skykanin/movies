@@ -1,6 +1,8 @@
 import MovieCard from "../moviecard/MovieCard"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Grid from '@mui/material/Unstable_Grid2';
+import "./Browse.css"
 
 const Browse = () => {
 
@@ -24,17 +26,17 @@ const Browse = () => {
     }
 
     return (
-    <div class="container" style={{maxWidth: "80%", marginTop: "10px"}}>
-        <div class="row row-cols-3">
-        {movies.map((movie) => {
-                        return(
-                            <Link key ={movie.movieID} to = {"/movie/"+movie.movieID} style = {{ textDecoration: 'none' }}>
-                                <MovieCard movie={movie}/>
-                            </Link>
-                        )
-                    })}
-        </div>
-    </div>
+      <div className="center-container">
+      <div className="grid-container">
+        <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 12, md: 12 }}>
+          {movies.map(movie => (
+            <Grid xs={1} sm={3} md={2} key={movie.movieID}>
+              <MovieCard movie={movie}/>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+      </div>
     )
 }
 

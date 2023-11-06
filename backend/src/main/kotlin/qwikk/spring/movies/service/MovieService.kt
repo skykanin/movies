@@ -2,6 +2,7 @@ package qwikk.spring.movies.service
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import qwikk.spring.movies.model.Movie
 import qwikk.spring.movies.repo.GenreRepository
 import qwikk.spring.movies.repo.MovieRepository
 
@@ -15,7 +16,9 @@ class MovieService() {
 
     fun findAll() = repository.findAllByOrderByImdbRatingDesc()
     fun findTop10() = repository.findTop10Rated()
-    fun findMovieId(id: Long) = repository.findById(id)
+    fun findMovieId(id: Long): Movie = repository.findById(id).orElseThrow {
+        NoSuchElementException("Movie ID:$id not found!")
+    }
     fun findMovieTitle(title: String) = repository.findBySeriesTitle(title)
     fun findAllGenres() = genreRepository.findAllGenres()
     fun findByGenre(name: String) = repository.findByGenreName(name)

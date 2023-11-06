@@ -1,4 +1,4 @@
-.search-container {
+.welcome-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,14 +8,9 @@
     margin-top: 20px;
 }
 
-.search-welcome {
+.welcome {
     display: flex;
     flex-direction: column;
     text-align: left;
     padding-top: 50px;
-}
-
-.search-bar {
-    display: flex;
-    text-align: left;
 }

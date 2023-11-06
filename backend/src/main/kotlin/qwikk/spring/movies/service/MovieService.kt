@@ -15,7 +15,8 @@ class MovieService() {
     lateinit var genreRepository : GenreRepository
 
     fun findAll() = repository.findAllByOrderByImdbRatingDesc()
-    fun findTop10() = repository.findTop10Rated()
+    fun findTop10Rated() = repository.findTop10Rated()
+    fun findTop10Popular() = repository.findTop10Popular()
     fun findMovieId(id: Long): Movie = repository.findById(id).orElseThrow {
         NoSuchElementException("Movie ID:$id not found!")
     }

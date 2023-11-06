@@ -1,6 +1,5 @@
 import MovieCard from "../moviecard/MovieCard"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import Grid from '@mui/material/Unstable_Grid2';
 import "./Browse.css"
 

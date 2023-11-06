@@ -10,7 +10,7 @@ const Hero = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/movies/top10")
+        fetch("http://localhost:8080/api/movies/top10/rated")
         .then(response => response.json())
         .then(data => {
           console.log(data)

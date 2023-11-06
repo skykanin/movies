@@ -1,0 +1,33 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+  justify-content: space-between;
+  max-width: 10rem;
+  gap: 1rem;
+}
+
+.movie-card > img {
+  max-width: 10rem;
+  border-radius: 5%;
+}
+
+.movie-info {
+  text-align: left;
+}
+
+.release-year {
+  opacity: 1;
+}
+
+.circle-text {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

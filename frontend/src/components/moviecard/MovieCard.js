@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = ({movie}) => {
     return (
-        <Card sx={{ maxWidth: 200}}>
+        <Card sx={{ maxWidth: "150px"}}>
           <CardActionArea component={Link} to={`/movie/${movie.movieID}`}>
             <CardMedia
               component="img"
               image={movie.posterLink}
               alt="Movie Poster"
-              sx={{objectFit: "contain"}}
+              sx={{objectFit: "fill", height: "180px"}}
             />
             <CardContent>
             <Box

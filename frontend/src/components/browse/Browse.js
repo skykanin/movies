@@ -13,6 +13,7 @@ const Browse = () => {
         .then(response => response.json())
         .then(data => {
           console.log(data)
+          console.log("WHAT")
           setMovies(data)
         }).finally( () =>{
             setLoading(false)
@@ -26,15 +27,15 @@ const Browse = () => {
 
     return (
       <div className="center-container">
-      <div className="grid-container">
-        <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 12, md: 12 }}>
-          {movies.map(movie => (
-            <Grid xs={1} sm={3} md={2} key={movie.movieID}>
-              <MovieCard movie={movie}/>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+        <div className="grid-container">
+          <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 12, md: 12 }}>
+            {movies.map(movie => (
+              <Grid xs={1} sm={3} md={2} key={movie.movieID}>
+                <MovieCard movie={movie}/>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
       </div>
     )
 }

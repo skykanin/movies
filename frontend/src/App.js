@@ -15,18 +15,17 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <Header/>
-        <Routes>
-          <Route path="" element={<Navigate replace to="home"/>}/>
-          <Route path="home" element={<Home />} />
-          <Route path="movie/:id" element={<MoviePage />} />
-          <Route path="browse" element={<Browse />} />
-        </Routes>
-      </ThemeProvider>
-
-    </div>
+      <div className="App">
+        <ThemeProvider theme={theme}>
+          <Header/>
+          <Routes>
+            <Route path="" element={<Navigate replace to="home"/>}/>
+            <Route path="home" element={<Home />} />
+            <Route path="movie/:id" element={<MoviePage />} />
+            <Route path="browse" element={<Browse />} />
+          </Routes>
+        </ThemeProvider>
+      </div>
   );
 }
 

@@ -21,7 +21,7 @@
         # module parameters provide easy access to attributes of the same
         # system.
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs.nodePackages_latest; [ pnpm typescript-language-server ];
+          buildInputs = with pkgs.nodePackages_latest; [ eslint pnpm typescript-language-server ];
         };
       };
       flake = {

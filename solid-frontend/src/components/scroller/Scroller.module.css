@@ -1,4 +1,7 @@
 .scroller {
   display: flex;
   justify-content: flex-start;
+  gap: 2rem;
+  overflow: scroll;
+  padding: 1rem;
 }

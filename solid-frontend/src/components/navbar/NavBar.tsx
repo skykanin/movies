@@ -1,6 +1,6 @@
-import { Component } from "solid-js";
-import "./NavBar.css"
-import solidLogo from "../../assets/solid.svg";
+import { type Component } from 'solid-js'
+import './NavBar.css'
+import solidLogo from '../../assets/solid.svg'
 
 const NavBar: Component = () => {
   return (
@@ -16,7 +16,7 @@ const NavBar: Component = () => {
         <button>Register</button>
       </div>
    </div>
-   )
+  )
 }
 
-export default NavBar;
+export default NavBar

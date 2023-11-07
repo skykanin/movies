@@ -1,13 +1,14 @@
-import { Show, createResource } from "solid-js";
-import type { Movie } from "../../types";
-import "./MoviePage.css";
+import { Show, createResource } from 'solid-js'
+import type { Component } from 'solid-js'
+import type { Movie } from '../../types'
+import './MoviePage.css'
 
-const queryMovie: (id: number) => Promise<Movie> = (id) =>
-  fetch(`http://localhost:8080/api/movies/id/${id}`)
-    .then(res => res.json())
+const queryMovie: (id: number) => Promise<Movie> = async (id) =>
+  await fetch(`http://localhost:8080/api/movies/id/${id}`)
+    .then(async res => await res.json())
 
-export default function MoviePage() {
-  const [movie] = createResource(() => queryMovie(112));
+const MoviePage: Component = () => {
+  const [movie] = createResource(async () => await queryMovie(112))
 
   return (
     <Show when={!movie.loading} fallback={<div>Loading...</div>}>
@@ -27,11 +28,11 @@ export default function MoviePage() {
             </div>
             <div class="movie-description">
               <p>
-                {movie()?.genre.map((x) => x.name).join(", ")}
+                {movie()?.genre.map((x) => x.name).join(', ')}
               </p>
             </div>
             <div class="movie-description">
-              <p>Cast: {[movie()?.star1, movie()?.star2, movie()?.star3, movie()?.star4].join(", ")}</p>
+              <p>Cast: {[movie()?.star1, movie()?.star2, movie()?.star3, movie()?.star4].join(', ')}</p>
             </div>
             <div class="movie-rating">
               <h4>{movie()?.imdbRating} / 10</h4>
@@ -40,5 +41,7 @@ export default function MoviePage() {
         </div>
       </div>
     </Show>
-  );
+  )
 }
+
+export default MoviePage

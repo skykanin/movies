@@ -10,7 +10,7 @@ const SearchBar = () => {
           <TextField
             label="Search for top rated movies!"
             id='fullWidth'
-            style={{width: "800px"}}
+            style={{width: "1200px"}}
             inputProps={{
               style: {
                 color: "white",

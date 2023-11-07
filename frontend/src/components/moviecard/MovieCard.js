@@ -16,7 +16,7 @@ const MovieCard = ({movie}) => {
               component="img"
               image={movie.posterLink}
               alt="Movie Poster"
-              sx={{objectFit: "fill", height: "180px"}}
+              sx={{objectFit: "cover", height: "180px"}}
             />
             <CardContent>
             <Box

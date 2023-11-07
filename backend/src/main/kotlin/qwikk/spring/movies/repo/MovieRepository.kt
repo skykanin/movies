@@ -8,7 +8,8 @@ import qwikk.spring.movies.model.Movie
 interface MovieRepository : JpaRepository<Movie, Long> {
 
     fun findAllByOrderByImdbRatingDesc(): List<Movie>
-    fun findBySeriesTitle(seriesTitle:String): List<Movie>
+    @Query("FROM Movie m WHERE m.seriesTitle ILIKE :pattern")
+    fun findBySeriesTitle(pattern:String): List<Movie>
 
     @Query("FROM Movie m JOIN m.genre g WHERE g.name IN :genres GROUP BY m HAVING COUNT(g) >= :genreCount")
     fun findMoviesWithGenres(genres: List<String>, genreCount: Int): List<Movie>

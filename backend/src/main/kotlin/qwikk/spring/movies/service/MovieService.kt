@@ -20,7 +20,7 @@ class MovieService() {
     fun findMovieId(id: Long): Movie = repository.findById(id).orElseThrow {
         NoSuchElementException("Movie ID:$id not found!")
     }
-    fun findMovieTitle(title: String) = repository.findBySeriesTitle(title)
+    fun findMovieTitle(title: String) = repository.findBySeriesTitle("%$title%")
     fun findAllGenres() = genreRepository.findAllGenres()
     fun findByGenre(genre: String): List<Movie> {
         val genreList = genre.split(",")

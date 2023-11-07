@@ -7,11 +7,7 @@ import jakarta.persistence.*
 @Table(name = "genre")
 data class Genre(
     @Column(name = "genre_id") @Id var genreID: Int = -1,
-    @Column(name = "genre_name") var name: String = "",
-
-    @ManyToMany(mappedBy = "genre")
-    @JsonIgnoreProperties("genre")
-    val movies: Set<Movie> = emptySet()
+    @Column(name = "genre_name") var name: String = ""
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

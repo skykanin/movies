@@ -22,5 +22,8 @@ class MovieService() {
     }
     fun findMovieTitle(title: String) = repository.findBySeriesTitle(title)
     fun findAllGenres() = genreRepository.findAllGenres()
-    fun findByGenre(name: String) = repository.findByGenreName(name)
+    fun findByGenre(genre: String): List<Movie> {
+        val genreList = genre.split(",")
+        return repository.findMoviesWithGenres(genreList, genreList.size)
+    }
 }

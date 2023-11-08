@@ -8,9 +8,9 @@ export interface Movie {
   posterLink: string
   seriesTitle: string
   releasedYear: number
-  certificate: string
+  certificate?: string
   runtime: string
-  genre: Genre[]
+  genre: Array<Genre>
   imdbRating: number
   overview: string
   metaScore: number
@@ -20,5 +20,5 @@ export interface Movie {
   star3: string
   star4: string
   noOfVotes: number
-  gross: string
+  gross?: string
 }

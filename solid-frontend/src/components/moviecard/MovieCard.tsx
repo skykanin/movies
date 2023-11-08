@@ -95,10 +95,10 @@ const MovieCard: Component<MovieCardProps> = (props) => (
       <div class='movie-card'>
         <CircleIndicator
           style={{
-            size: 55,
+            size: 50,
             strokeWidth: 4,
             offsetX: -105,
-            offsetY: -73,
+            offsetY: -70,
             ringColor: '#0F1'
           }}
           progress={movie().imdbRating}

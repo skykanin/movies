@@ -43,18 +43,22 @@ interface CircleProgressProps {
     strokeWidth: number
     offsetX: number
     offsetY: number
-    ringColor: string
   }
   progress: number
 }
 
+const between = (lower: number, upper: number, num: number): boolean =>
+  num >= lower && num <= upper
+
 const CircleProgress: Component<CircleProgressProps> = (props) => {
-  const { size, strokeWidth, offsetX, offsetY, ringColor } = props.style
+  const { size, strokeWidth, offsetX, offsetY } = props.style
   const center = size / 2
   const radius = center - strokeWidth
   const circleStyle = circleCss(center, radius, strokeWidth, 'transparent')
   const arcLength = 2 * Math.PI * radius
   const arcOffset = arcLength * (100 - props.progress * 10) / 100
+  const progressColor = between(7, 10, props.progress) ? '#0F1' :
+    between(4, 7, props.progress) ? '#FFA500' : '#F00'
   return (
     <div
       style={{
@@ -71,7 +75,7 @@ const CircleProgress: Component<CircleProgressProps> = (props) => {
           <circle
             style={{
               ...circleStyle,
-              stroke: ringColor,
+              stroke: progressColor,
               'stroke-dasharray': `${arcLength}px`,
               'stroke-dashoffset': `${arcOffset}px`
             }}
@@ -98,8 +102,7 @@ const MovieCard: Component<MovieCardProps> = (props) => (
             size: 50,
             strokeWidth: 4,
             offsetX: -105,
-            offsetY: -70,
-            ringColor: '#0F1'
+            offsetY: -70
           }}
           progress={movie().imdbRating}
         />

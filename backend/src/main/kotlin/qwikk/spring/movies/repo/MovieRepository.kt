@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import qwikk.spring.movies.model.Movie
 
-interface MovieRepository : JpaRepository<Movie, Long> {
+interface MovieRepository : JpaRepository<Movie, Long>, MovieRepoCustom {
 
     fun findAllByOrderByImdbRatingDesc(): List<Movie>
     @Query("FROM Movie m WHERE m.seriesTitle ILIKE :pattern")

@@ -27,7 +27,7 @@ class MovieController(private val service: MovieService) {
 
     @GetMapping("/filter")
     fun findFilteredMovie(@RequestParam title: String?,
-                          @RequestParam genre: String?) = service.findFilteredMovie(title, genre)
+                          @RequestParam genre: String?) = service.findByCustomQuery(title,genre)
 
     @GetMapping("/all")
     fun findAll() = service.findAll()

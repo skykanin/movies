@@ -37,7 +37,7 @@ const svgCss = (size: number): {
     height: `${size}px`
   })
 
-interface CircleIndicatorProps {
+interface CircleProgressProps {
   style: {
     size: number
     strokeWidth: number
@@ -48,7 +48,7 @@ interface CircleIndicatorProps {
   progress: number
 }
 
-const CircleIndicator: Component<CircleIndicatorProps> = (props) => {
+const CircleProgress: Component<CircleProgressProps> = (props) => {
   const { size, strokeWidth, offsetX, offsetY, ringColor } = props.style
   const center = size / 2
   const radius = center - strokeWidth
@@ -93,7 +93,7 @@ const MovieCard: Component<MovieCardProps> = (props) => (
   <Show when={props.movie} fallback={<div>Loading...</div>}>
     {(movie) => (
       <div class='movie-card'>
-        <CircleIndicator
+        <CircleProgress
           style={{
             size: 50,
             strokeWidth: 4,

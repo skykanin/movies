@@ -65,7 +65,7 @@ const CircleProgress: Component<CircleProgressProps> = (props) => {
         position: 'relative',
         display: 'inline-flex',
         'margin-bottom': `${offsetY}px`,
-        'margin-right': `${offsetX}px`
+        'margin-left': `${offsetX}px`
       }}
     >
       <span>
@@ -101,8 +101,8 @@ const MovieCard: Component<MovieCardProps> = (props) => (
           style={{
             size: 50,
             strokeWidth: 4,
-            offsetX: -105,
-            offsetY: -70
+            offsetX: 105,
+            offsetY: -73
           }}
           progress={movie().imdbRating}
         />

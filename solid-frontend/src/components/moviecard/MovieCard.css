@@ -1,9 +1,8 @@
 .movie-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 5%;
-  justify-content: flex-start;
   max-width: 10rem;
   gap: 1rem;
 }
@@ -14,7 +13,13 @@
 }
 
 .movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: left;
   text-align: left;
+  gap: 0.3rem;
+  padding: 0.3rem;
 }
 
 .release-year {
@@ -30,4 +35,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }

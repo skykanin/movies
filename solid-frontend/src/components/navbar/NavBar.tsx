@@ -1,21 +1,21 @@
 import { type Component } from 'solid-js'
-import './NavBar.css'
+import style from './NavBar.module.css'
 import solidLogo from '../../assets/solid.svg'
 
 const NavBar: Component = () => {
   return (
-    <div class="navbar">
-      <div class="logo">
+    <header class={style.navbar}>
+      <div class={style.logo}>
         <a href="/home">
           <img src={solidLogo} class="logo solid" alt="Solid logo"/>
         </a>
       </div>
-      <span>hello world</span>
+      <h1>qwikk.movies</h1>
       <div class="buttons">
         <button>Login</button>
         <button>Register</button>
       </div>
-   </div>
+   </header>
   )
 }
 

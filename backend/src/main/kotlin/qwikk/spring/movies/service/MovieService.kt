@@ -14,6 +14,18 @@ class MovieService() {
     @Autowired
     lateinit var genreRepository : GenreRepository
 
+    fun findFilteredMovie(title: String?, genre: String?): List<Movie> {
+        //TODO filter in either sql queries or using jpa specifications(figure out how to use them in kotlin)
+        var movieList = repository.findAll()
+        if (title != null) {
+            movieList = movieList.filter { it.seriesTitle.contains(title, true) }
+        }
+        if (genre != null) {
+            val genreList = genre.split(",")
+            movieList = movieList.filter { it.genre.map { genre ->  genre.name }.containsAll(genreList) }
+        }
+        return movieList
+    }
     fun findAll() = repository.findAllByOrderByImdbRatingDesc()
     fun findTop10Rated() = repository.findTop10Rated()
     fun findTop10Popular() = repository.findTop10Popular()

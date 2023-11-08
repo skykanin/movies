@@ -6,7 +6,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "movies")
-data class Movie(
+class Movie(
     @Id var movieID: Int = -1,
     @Column(name = "poster_link") var posterLink:String = "",
     @Column(name = "series_title") val seriesTitle:String = "",

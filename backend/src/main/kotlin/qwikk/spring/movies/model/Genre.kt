@@ -1,11 +1,10 @@
 package qwikk.spring.movies.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "genre")
-data class Genre(
+class Genre(
     @Column(name = "genre_id") @Id var genreID: Int = -1,
     @Column(name = "genre_name") var name: String = ""
 ) {

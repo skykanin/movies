@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestParam
 import qwikk.spring.movies.service.MovieService
 import kotlin.NoSuchElementException
 
@@ -23,6 +24,10 @@ class MovieController(private val service: MovieService) {
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
+
+    @GetMapping("/filter")
+    fun findFilteredMovie(@RequestParam title: String?,
+                          @RequestParam genre: String?) = service.findFilteredMovie(title, genre)
 
     @GetMapping("/all")
     fun findAll() = service.findAll()

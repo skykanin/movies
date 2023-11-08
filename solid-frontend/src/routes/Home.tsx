@@ -3,12 +3,12 @@ import type { Movie } from '../types'
 import { createResource, Show } from 'solid-js'
 import Scroller from '../components/scroller/Scroller'
 
-const queryMovie: () => Promise<Movie[]> = async () =>
-  await fetch('http://localhost:8080/api/movies/top10/rated')
+const queryMovies: () => Promise<Movie[]> = () =>
+  fetch('http://localhost:8080/api/movies/top10/rated')
     .then(async res => await res.json())
 
 const Home: Component = () => {
-  const [movies] = createResource(async () => await queryMovie())
+  const [movies] = createResource(async () => await queryMovies())
   return (
    <div>
      <h2>Welcome to qwikk.movies</h2>

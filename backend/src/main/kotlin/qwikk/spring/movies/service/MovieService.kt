@@ -20,16 +20,10 @@ class MovieService() {
         page: String,
         size: String) = repository.findByCustomQuery(title, genre, page.toInt(), size.toInt())
 
-    fun findAll() = repository.findAllByOrderByImdbRatingDesc()
     fun findTop10Rated() = repository.findTop10Rated()
     fun findTop10Popular() = repository.findTop10Popular()
     fun findMovieId(id: Long): Movie = repository.findById(id).orElseThrow {
         NoSuchElementException("Movie ID:$id not found!")
     }
-    fun findMovieTitle(title: String) = repository.findBySeriesTitle("%$title%")
     fun findAllGenres() = genreRepository.findAllGenres()
-    fun findByGenre(genre: String): List<Movie> {
-        val genreList = genre.split(",")
-        return repository.findMoviesWithGenres(genreList, genreList.size)
-    }
 }

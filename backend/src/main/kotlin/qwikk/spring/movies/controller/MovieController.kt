@@ -32,8 +32,6 @@ class MovieController(private val service: MovieService) {
         @RequestParam(defaultValue = "0") page: String,
         @RequestParam(defaultValue = "1001") size: String) = service.findByCustomQuery(title,genre,page,size)
 
-    @GetMapping("/all")
-    fun findAll() = service.findAll()
 
     @GetMapping("/top10/rated")
     fun findTop10() = service.findTop10Rated()
@@ -43,12 +41,6 @@ class MovieController(private val service: MovieService) {
 
     @GetMapping("/id/{movieID}")
     fun findById(@PathVariable movieID: Long) = service.findMovieId(movieID)
-
-    @GetMapping("/title/{seriesTitle}")
-    fun findByTitle(@PathVariable seriesTitle:String) = service.findMovieTitle(seriesTitle)
-
-    @GetMapping("/genre/{genre}")
-    fun findByGenre(@PathVariable genre: String) = service.findByGenre(genre)
 
     @GetMapping("/genre/all")
     fun findAllGenres() = service.findAllGenres()

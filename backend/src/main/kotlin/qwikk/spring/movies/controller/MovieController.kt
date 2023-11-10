@@ -26,8 +26,11 @@ class MovieController(private val service: MovieService) {
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
     @GetMapping("/filter")
-    fun findFilteredMovie(@RequestParam title: String?,
-                          @RequestParam genre: String?) = service.findByCustomQuery(title,genre)
+    fun findFilteredMovie(
+        @RequestParam(required = false) title: String?,
+        @RequestParam(required = false) genre: String?,
+        @RequestParam(defaultValue = "0") page: String,
+        @RequestParam(defaultValue = "1001") size: String) = service.findByCustomQuery(title,genre,page,size)
 
     @GetMapping("/all")
     fun findAll() = service.findAll()

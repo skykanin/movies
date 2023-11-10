@@ -14,7 +14,11 @@ class MovieService() {
     @Autowired
     lateinit var genreRepository : GenreRepository
 
-    fun findByCustomQuery(title: String?, genre: String?): List<Movie> = repository.findByCustomQuery(title, genre)
+    fun findByCustomQuery(
+        title: String?,
+        genre: String?,
+        page: String,
+        size: String) = repository.findByCustomQuery(title, genre, page.toInt(), size.toInt())
 
     fun findAll() = repository.findAllByOrderByImdbRatingDesc()
     fun findTop10Rated() = repository.findTop10Rated()

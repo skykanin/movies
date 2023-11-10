@@ -14,7 +14,7 @@ class MovieRepoCustomImpl : MovieRepoCustom {
     @PersistenceContext
     lateinit var entityManager: EntityManager
 
-    override fun findByCustomQuery(title: String?, genre: String?): List<Movie> {
+    override fun findByCustomQuery(title: String?, genre: String?, page: Int, size: Int): List<Movie> {
         val cb = entityManager.criteriaBuilder
         val query = cb.createQuery(Movie::class.java)
         val root = query.from(Movie::class.java)
@@ -22,12 +22,13 @@ class MovieRepoCustomImpl : MovieRepoCustom {
 
         if (genre != null) {
             val genreList = genre.split(",")
+            val genreJoin: Join<Movie, Genre>  = root.join("genre")
 
-            val genreJoin: Join<Movie, Genre> = root.join("genre")
             val genrePredicate: Predicate = genreJoin.get<String>("name").`in`(genreList)
 
             query.groupBy(root)
             query.having(cb.greaterThanOrEqualTo(cb.count(genreJoin), genreList.size.toLong()))
+
             predicates.add(genrePredicate)
         }
 
@@ -37,8 +38,13 @@ class MovieRepoCustomImpl : MovieRepoCustom {
         }
 
         query.select(root)
-
         query.where(*predicates.toTypedArray())
-        return entityManager.createQuery(query).resultList
+
+
+        val typedQuery = entityManager.createQuery(query)
+        typedQuery.setFirstResult(page * size)
+        typedQuery.setMaxResults(size)
+
+        return typedQuery.resultList
     }
 }

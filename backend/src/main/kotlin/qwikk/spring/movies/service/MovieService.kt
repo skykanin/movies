@@ -16,7 +16,7 @@ class MovieService() {
 
     fun findByCustomQuery(
         title: String?,
-        genre: String?,
+        genre: List<String>?,
         page: String,
         size: String) = repository.findByCustomQuery(title, genre, page.toInt(), size.toInt())
 

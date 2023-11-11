@@ -30,17 +30,17 @@ const SearchBar = () => {
             fieldset
             variant='filled'>
           </TextField>
-            <Link to={`/browse/title=${textField}`} >
-              <Button
-              type='submit'
-              style={{width: "100px", height: "100%", 
-              background: "rgb(3, 37, 65)",
-              color: "white"}}
-              variant='contained' 
-              disableElevation>Search
-              </Button>
-            </Link>
-          </form>
+          <Link to={`/browse/title=${textField}`} >
+            <Button
+            type='submit'
+            style={{width: "100px", height: "100%", 
+            background: "rgb(3, 50, 80)",
+            color: "white"}}
+            variant='contained' 
+            disableElevation>Search
+            </Button>
+          </Link>
+        </form>
       </div>
     )
   }

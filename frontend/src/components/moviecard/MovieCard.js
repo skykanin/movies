@@ -30,23 +30,23 @@ const MovieCard = ({movie}) => {
                 }}
               >
                 <CircularProgress 
-                variant='determinate' 
+                variant='determinate'
                 value={100}
-                thickness={10}
-                sx={{position: "absolute", left: 0, color: "black"}}
-                />
-                <CircularProgress
-                variant="determinate" 
-                value={movie.imdbRating*10} 
-                thickness={5}
-                sx={{color: "green"}}
+                thickness={22}
+                size={44}
+                sx={{position: "absolute", left: -2, color: "rgb(6, 22, 27)"}}
                 />
                 <CircularProgress 
                 variant='determinate' 
                 value={100}
-                thickness={22}
-                size={32}
-                sx={{position: "absolute", left: 4, color: "black"}}
+                thickness={3}
+                sx={{position: "absolute", left: 0, color: "rgb(32, 69, 41)"}}
+                />
+                <CircularProgress
+                variant="determinate" 
+                value={movie.imdbRating*10} 
+                thickness={3}
+                sx={{color: "rgb(33, 208, 122)"}}
                 />
                 <Typography position="absolute" variant="caption" component="div" sx={{fontWeight: "bold"}}>
                 {movie.imdbRating}

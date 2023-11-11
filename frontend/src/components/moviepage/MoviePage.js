@@ -42,7 +42,7 @@ const MoviePage = () => {
                         <p>{movie.genre.map((x) => x.name).join(", ")}</p>
                     </div>
                     <div className='movie-description'>
-                        <p>Cast: {movie.star1}, {movie.star2}, {movie.star3}, {movie.star4}</p>
+                        <p>Cast: {movie.starring.map((x) => x.name).join(", ")}</p>
                     </div>
                     <div className='movie-rating'>
                         <h4>{movie.imdbRating} / 10</h4>

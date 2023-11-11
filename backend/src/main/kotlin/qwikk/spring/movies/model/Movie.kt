@@ -19,7 +19,6 @@ class Movie(
         name = "movie_genre",
         joinColumns = [JoinColumn(name = "movieid")],
         inverseJoinColumns = [JoinColumn(name = "genreid")])
-    @JsonIgnoreProperties("movies")
     val genre:Set<Genre> = emptySet(),
 
     @ManyToMany

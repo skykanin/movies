@@ -22,6 +22,13 @@ class Movie(
     @JsonIgnoreProperties("movies")
     val genre:Set<Genre> = emptySet(),
 
+    @ManyToMany
+    @JoinTable(
+        name = "movie_actor",
+        joinColumns = [JoinColumn(name = "movieid")],
+        inverseJoinColumns = [JoinColumn(name = "actorid")])
+    val starring: Set<Actor> = emptySet(),
+
     @Column(name = "imdb_rating")val imdbRating:Double = -1.0,
     val overview:String = "",
     @Column(name = "meta_score")val metaScore:Int? = -1,

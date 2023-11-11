@@ -3710,8 +3710,6 @@ ALTER TABLE ONLY public.movie_genre
     ADD CONSTRAINT movie_genre_movieid_fkey FOREIGN KEY (movieid) REFERENCES public.movies(movieid) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
-
-SELECT * FROM public.genre;
 --
 -- PostgreSQL database dump complete
 --

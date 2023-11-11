@@ -10,7 +10,7 @@ import qwikk.spring.movies.repo.MovieRepository
 class MovieService() {
 
     @Autowired
-    lateinit var repository: MovieRepository
+    lateinit var movieRepository: MovieRepository
     @Autowired
     lateinit var genreRepository : GenreRepository
 
@@ -18,11 +18,11 @@ class MovieService() {
         title: String?,
         genre: List<String>?,
         page: String,
-        size: String) = repository.findByCustomQuery(title, genre, page.toInt(), size.toInt())
+        size: String) = movieRepository.findByCustomQuery(title, genre, page.toInt(), size.toInt())
 
-    fun findTop10Rated() = repository.findTop10Rated()
-    fun findTop10Popular() = repository.findTop10Popular()
-    fun findMovieId(id: Long): Movie = repository.findById(id).orElseThrow {
+    fun findTop10Rated() = movieRepository.findTop10Rated()
+    fun findTop10Popular() = movieRepository.findTop10Popular()
+    fun findMovieId(id: Long): Movie = movieRepository.findById(id).orElseThrow {
         NoSuchElementException("Movie ID:$id not found!")
     }
     fun findAllGenres() = genreRepository.findAllGenres()

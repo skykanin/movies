@@ -2,7 +2,6 @@ package qwikk.spring.movies.repo
 
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
-import jakarta.persistence.criteria.Join
 import jakarta.persistence.criteria.Predicate
 import org.springframework.stereotype.Repository
 import qwikk.spring.movies.model.Genre

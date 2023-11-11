@@ -27,7 +27,6 @@ const SearchBar = () => {
             label="Search for top rated movies!"
             id='fullWidth'
             style={{width: "800px"}}
-            fieldset
             variant='filled'>
           </TextField>
           <Link to={`/browse/title=${textField}`} >

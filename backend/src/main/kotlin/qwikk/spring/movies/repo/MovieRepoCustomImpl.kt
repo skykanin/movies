@@ -21,14 +21,18 @@ class MovieRepoCustomImpl : MovieRepoCustom {
         val predicates = mutableListOf<Predicate>()
 
         if (genre != null) {
-            val genreJoin: Join<Movie, Genre>  = root.join("genre")
+            val subQuery = query.subquery(Movie::class.java)
+            val subRoot = subQuery.from(Movie::class.java)
+            val subGenreJoin = subRoot.join<Movie, Genre>("genre")
 
-            val genrePredicate: Predicate = genreJoin.get<String>("name").`in`(genre)
+            val genrePredicate: Predicate = subGenreJoin.get<String>("name").`in`(genre)
 
-            query.groupBy(root)
-            query.having(cb.greaterThanOrEqualTo(cb.count(genreJoin), genre.size.toLong()))
+            subQuery.select(subRoot)
+            subQuery.where(genrePredicate)
+            subQuery.groupBy(subRoot)
+            subQuery.having(cb.greaterThanOrEqualTo(cb.count(subGenreJoin), genre.size.toLong()))
 
-            predicates.add(genrePredicate)
+            predicates.add(root.`in`(subQuery))
         }
 
 

@@ -36,7 +36,7 @@ class MovieRepoCustomImpl : MovieRepoCustom {
 
 
         if (title != null) {
-            predicates.add(cb.like(root.get("seriesTitle"), "%$title%"))
+            predicates.add(cb.like(cb.lower(root.get("seriesTitle")), "%${title.lowercase()}%"))
         }
 
         query.select(root)

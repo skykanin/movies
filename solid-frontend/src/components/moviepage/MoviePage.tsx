@@ -1,11 +1,8 @@
 import { Show, createResource } from 'solid-js'
 import type { Component } from 'solid-js'
-import type { Movie } from '../../types'
-import './MoviePage.css'
+import { queryMovie } from '../../lib/api'
 
-const queryMovie: (id: number) => Promise<Movie> = async (id) =>
-  await fetch(`http://localhost:8080/api/movies/id/${id}`)
-    .then(async res => await res.json())
+import './MoviePage.css'
 
 const MoviePage: Component = () => {
   const [movie] = createResource(async () => await queryMovie(112))

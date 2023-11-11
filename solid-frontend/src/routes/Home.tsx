@@ -1,17 +1,13 @@
 import type { Component } from 'solid-js'
-import type { Movie } from '../types'
 import { createResource, Show } from 'solid-js'
 import Scroller from '../components/scroller/Scroller'
 import Search from '../components/search/Search'
+import { queryTopRatedMovies } from '../lib/api'
 
 import style from './Home.module.css'
 
-const queryMovies: () => Promise<Movie[]> = () =>
-  fetch('http://localhost:8080/api/movies/top10/rated')
-    .then(async res => await res.json())
-
 const Home: Component = () => {
-  const [movies] = createResource(async () => await queryMovies())
+  const [movies] = createResource(async () => await queryTopRatedMovies())
   return (
     <div class={style.home}>
      <h1>Browse a collection of the top 1000 rated movies</h1>

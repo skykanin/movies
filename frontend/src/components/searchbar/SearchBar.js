@@ -19,6 +19,7 @@ const SearchBar = () => {
       <div className='search-container'>
         <form>
           <TextField
+            autoComplete='off'
             onChange={text => {
               setTextField(text.target.value)}
             }

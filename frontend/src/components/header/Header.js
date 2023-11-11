@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <Navbar variant="dark" expand="lg">
             <Container fluid>
-                <NavbarBrand as={NavLink} to="home" style={{"color":'gold'}}>
+                <NavbarBrand as={NavLink} to="home" style={{"color":'white'}}>
                     <FontAwesomeIcon icon ={faVideo}/> qwikk.movies
                 </NavbarBrand>
                 <NavbarToggle aria-controls="navbarScroll" />

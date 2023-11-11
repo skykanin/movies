@@ -9,8 +9,12 @@
 
 .MuiInputBase-input {
     background: rgb(24, 26, 27);
-}
-
-.MuiButton-root {
+  }
+  
+  .MuiTextField-root {
+    background: rgb(24, 26, 27);
+  }
+  
+  .MuiButton-root {
     border-radius: 0px;
-  } 
+  }

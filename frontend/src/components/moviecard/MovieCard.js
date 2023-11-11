@@ -18,7 +18,7 @@ const MovieCard = ({movie}) => {
               alt="Movie Poster"
               sx={{objectFit: "cover", height: "180px"}}
             />
-            <CardContent>
+            <CardContent sx={{padding: "10px"}}>
             <Box
                 sx={{
                   position: "absolute",
@@ -44,7 +44,7 @@ const MovieCard = ({movie}) => {
                 />
                 <CircularProgress
                 variant="determinate" 
-                value={movie.imdbRating*10} 
+                value={movie.imdbRating*10}
                 thickness={3}
                 sx={{color: "rgb(33, 208, 122)"}}
                 />
@@ -57,13 +57,14 @@ const MovieCard = ({movie}) => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  flexDirection: "column"
+                  flexDirection: "column",
+                  paddingTop: "5px",
                 }}
               >
                 <Typography variant="body2">
                     {movie.seriesTitle}
                 </Typography>
-                <Typography gutterBottom variant="body2" component="div" sx={{marginTop: "10px"}}>
+                <Typography variant="body2">
                     {movie.releasedYear}
                 </Typography>
               </Box>

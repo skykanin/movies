@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, StyledEngineProvider } from '@mui/material';
 import './SearchBar.css'
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ const SearchBar = () => {
     }
 
     return (
+      <StyledEngineProvider injectFirst>
       <div className='search-container'>
         <form>
           <TextField
@@ -26,7 +27,7 @@ const SearchBar = () => {
             onSubmit={onFormSubmit}
             label="Search for top rated movies!"
             id='fullWidth'
-            style={{width: "800px"}}
+            style={{width: "900px"}}
             variant='filled'>
           </TextField>
           <Link to={`/browse/title=${textField}`} >
@@ -41,6 +42,7 @@ const SearchBar = () => {
           </Link>
         </form>
       </div>
+      </StyledEngineProvider>
     )
   }
   

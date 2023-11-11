@@ -33,7 +33,7 @@ const MoviePage = () => {
                 </div>
                 <div className='movie-text-container'>
                     <div className='movie-title'>
-                        <h4>{movie.seriesTitle}</h4>
+                        <h3>{movie.seriesTitle}</h3>
                     </div>
                     <div className='movie-description'>
                         <p>{movie.overview}</p>

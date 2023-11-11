@@ -1,19 +1,15 @@
-import { Button, StyledEngineProvider } from '@mui/material';
+import { StyledEngineProvider,Button } from '@mui/material';
 import './SearchBar.css'
 import TextField from '@mui/material/TextField';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 
 const SearchBar = () => {
 
     const [textField, setTextField] = useState("")
-    const navigate = useNavigate()
-
-    const onFormSubmit = (e) => {
-      e.preventDefault()
-      navigate(`/browse/title=${textField}`)
-    }
 
     return (
       <StyledEngineProvider injectFirst>
@@ -24,20 +20,20 @@ const SearchBar = () => {
             onChange={text => {
               setTextField(text.target.value)}
             }
-            onSubmit={onFormSubmit}
             label="Search for top rated movies!"
             id='fullWidth'
             style={{width: "900px"}}
             variant='filled'>
           </TextField>
-          <Link to={`/browse/title=${textField}`} >
+          <Link to={`/browse/&title=${textField}`}>
             <Button
             type='submit'
+            sx={{borderRadius: "0px"}}
             style={{width: "100px", height: "100%", 
             background: "rgb(3, 50, 80)",
             color: "white"}}
-            variant='contained' 
-            disableElevation>Search
+            variant='contained'
+            disableElevation><FontAwesomeIcon icon={faMagnifyingGlass} size='2xl'/>
             </Button>
           </Link>
         </form>

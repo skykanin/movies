@@ -9,7 +9,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./database/moviedbdata.sql:/docker-entrypoint-initdb.d/moviedbdata.sql
+      - ./database/movies_with_actormapping.sql:/docker-entrypoint-initdb.d/moviedbdata.sql
 
   backend:
     image: movies-backend

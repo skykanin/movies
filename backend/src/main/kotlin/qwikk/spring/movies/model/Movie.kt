@@ -33,10 +33,6 @@ class Movie(
     val overview:String = "",
     @Column(name = "meta_score")val metaScore:Int? = -1,
     val director:String = "",
-    val star1:String = "",
-    val star2:String = "",
-    val star3:String = "",
-    val star4:String = "",
     @Column(name = "no_of_votes")val noOfVotes:Int = -1,
     val gross:String = "",
 ) {

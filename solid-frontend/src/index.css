@@ -11,10 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --primary: #f7fff7;
-  --secondary: #ff6b6b;
-  --highlight: #4ecdc4;
-  --accent: #1a535c;
+  --primary: #d7d6d6;
+  --secondary: #36413e;
+  --highlight: #beb2c8;
+  --accent: #5d5e60;
+  --light-grey: #8d8d92;
   --text-color: black;
 }
 
@@ -23,6 +24,6 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(var(--primary), var(--highlight));
+  background-color: var(--primary);
   color: var(--text-color);
 }

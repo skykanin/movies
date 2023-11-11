@@ -1,4 +1,4 @@
-import { Button, FormGroup } from '@mui/material';
+import { Button } from '@mui/material';
 import './SearchBar.css'
 import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';

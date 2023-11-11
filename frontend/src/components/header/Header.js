@@ -22,7 +22,7 @@ const Header = () => {
                             navbarScroll
                         >
                         <NavLink className ="nav-link" to="home">Home</NavLink>
-                        <NavLink className ="nav-link" to="browse">Browse</NavLink>
+                        <NavLink className ="nav-link" to="browse/">Browse</NavLink>
                     </Nav>
                     <Button variant="outline-info" className="me-2">Login</Button>
                     <Button variant="outline-info">Register</Button>

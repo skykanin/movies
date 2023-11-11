@@ -2,21 +2,23 @@ import MovieCard from "../moviecard/MovieCard"
 import { useEffect, useState } from "react"
 import Grid from '@mui/material/Unstable_Grid2';
 import "./Browse.css"
+import { useParams } from "react-router-dom";
 
 const Browse = () => {
 
+    const { url } = useParams("")
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/movies/filter?page=0&size=10")
+        fetch(`http://localhost:8080/api/movies/filter?${url}&page=0&size=18`)
         .then(response => response.json())
         .then(data => {
           setMovies(data)
         }).finally( () =>{
             setLoading(false)
         })
-      }, [])
+      }, [url])
 
 
     if (loading) {

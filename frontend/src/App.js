@@ -22,7 +22,7 @@ function App() {
             <Route path="" element={<Navigate replace to="home"/>}/>
             <Route path="home" element={<Home />} />
             <Route path="movie/:id" element={<MoviePage />} />
-            <Route path="browse" element={<Browse />} />
+            <Route path="browse/:url?" element={<Browse />} />
           </Routes>
         </ThemeProvider>
       </div>

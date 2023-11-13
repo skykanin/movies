@@ -1,18 +1,29 @@
-.movie-card {
+.movie_card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 5%;
+  border-radius: 10px;
   max-width: 10rem;
   gap: 1rem;
-}
-
-.movie-card > img {
   max-width: 10rem;
-  border-radius: 5%;
+  transition: transform 0.2s;
 }
 
-.movie-info {
+.movie_card:hover {
+  transform: scale(1.1);
+}
+
+.poster {
+  align-self: center;
+  max-width: 10rem;
+}
+
+.image {
+  max-height: 14rem;
+  border-radius: 5px;
+}
+
+.movie_info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -22,11 +33,11 @@
   padding: 0.3rem;
 }
 
-.release-year {
+.release_year {
   opacity: 1;
 }
 
-.circle-text {
+.circle_text {
   top: 0;
   left: 0;
   bottom: 0;

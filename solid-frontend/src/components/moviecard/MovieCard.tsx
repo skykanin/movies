@@ -2,7 +2,7 @@ import type { Component } from 'solid-js'
 import { Show } from 'solid-js'
 import type { Movie } from '../../types'
 
-import './MovieCard.css'
+import style from './MovieCard.module.css'
 
 const circleCss = (
   half: number,
@@ -62,9 +62,9 @@ const CircleProgress: Component<CircleProgressProps> = (props) => {
   return (
     <div
       style={{
-        position: 'relative',
+        position: 'absolute',
         display: 'inline-flex',
-        'margin-bottom': `${offsetY}px`,
+        'margin-top': `${offsetY}px`,
         'margin-left': `${offsetX}px`
       }}
     >
@@ -82,7 +82,7 @@ const CircleProgress: Component<CircleProgressProps> = (props) => {
           />
         </svg>
       </span>
-      <div class='circle-text'>
+    <div class={style.circle_text}>
         <div>{props.progress * 10}</div>
       </div>
     </div>
@@ -96,21 +96,23 @@ interface MovieCardProps {
 const MovieCard: Component<MovieCardProps> = (props) => (
   <Show when={props.movie} fallback={<div>Loading...</div>}>
     {(movie) => (
-      <div class='movie-card'>
-        <CircleProgress
-          style={{
-            size: 50,
-            strokeWidth: 4,
-            offsetX: 105,
-            offsetY: -73
-          }}
-          progress={movie().imdbRating}
-        />
-        <img src={movie().posterLink} />
-        <div class="movie-info">
+      <div class={style.movie_card}>
+        <div class={style.poster}>
+          <img class={style.image} src={movie().posterLink} />
+          <CircleProgress
+            style={{
+              size: 40,
+              strokeWidth: 3,
+              offsetX: -40,
+              offsetY: 0
+            }}
+            progress={movie().imdbRating}
+          />
+        </div>
+        <div class={style.movie_info}>
           <span>{movie().seriesTitle}</span>
           <br />
-          <span class='release-year'>{movie().releasedYear}</span>
+        <span class={style.release_year}>{movie().releasedYear}</span>
         </div>
       </div>
     )}

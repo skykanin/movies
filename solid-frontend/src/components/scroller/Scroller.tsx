@@ -6,7 +6,7 @@ import MovieCard from '../moviecard/MovieCard'
 import style from './Scroller.module.css'
 
 interface ScrollerProps {
-  movies: Movie[]
+  movies: Array<Movie>
 }
 
 const Scroller: Component<ScrollerProps> = (props) => {

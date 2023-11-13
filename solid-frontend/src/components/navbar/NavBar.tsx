@@ -6,11 +6,11 @@ const NavBar: Component = () => {
   return (
     <header class={style.navbar}>
       <div class={style.logo}>
-        <a href="/home">
+        <a href="/">
           <img src={solidLogo} class="logo solid" alt="Solid logo"/>
         </a>
       </div>
-      <h1>qwikk.movies</h1>
+      <h1>skykanin.movies</h1>
       <div class="buttons">
         <button>Login</button>
         <button>Register</button>

@@ -15,7 +15,7 @@ const App: Component = () =>
       <NavBar/>
       <Routes>
         <Route path="/" component={Home}/>
-        <Route path="/search/:movie?" component={Search}/>
+        <Route path="/search" component={Search}/>
       </Routes>
     </Router>
   )

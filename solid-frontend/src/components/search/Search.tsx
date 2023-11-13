@@ -1,5 +1,7 @@
 import type { Component } from 'solid-js'
 import { createResource, createSignal, For, Show } from 'solid-js'
+import { useNavigate } from '@solidjs/router'
+import { queryGenres } from '../../lib/api'
 
 import style from './Search.module.css'
 
@@ -11,7 +13,9 @@ const Label: Component<{ name: string, onClick: () => Set<string>}> = (props) =>
 }
 
 const Search: Component = () => {
+  const navigate = useNavigate();
   const [genres, setGenres] = createSignal<Set<string>>(new Set([]));
+  const [title, setTitle] = createSignal("")
 
   const addGenre = (genre: string) => setGenres(oldGenres =>
     oldGenres.size !== 3 ? new Set([...oldGenres, genre]) : oldGenres
@@ -23,16 +27,21 @@ const Search: Component = () => {
     return newGenres;
   })
 
-  const [genreOptions] = createResource<Array<string>>(() =>
-    fetch("http://localhost:8080/api/movies/genre/all")
-      .then(res => res.json())
-  )
+  const [genreOptions] = createResource(queryGenres)
+
+  const submit = (e: Event) => {
+    e.preventDefault
+    const searchParams =
+          new URLSearchParams({title: title(), limit: '8'})
+    navigate(`/search?${searchParams}`)
+  }
 
   return (
     <div class={style.form_container}>
-      <form>
+      <form onSubmit={e => submit(e)}>
         <label>
-          <input class={style.search} type="search" placeholder="Movie"/>
+    <input class={style.search} onInput={e => setTitle(e.target.value)}
+      type="search" placeholder="Movie"/>
           <input class={style.search_submit} type="submit" value="Search"/>
         </label>
         <select class={style.select} name="genres" id="genre-select"

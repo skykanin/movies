@@ -2,6 +2,7 @@ import MovieCard from "../moviecard/MovieCard"
 import { useEffect, useState } from "react"
 import Grid from '@mui/material/Unstable_Grid2';
 import "./MovieRow.css"
+import { CircularProgress } from "@mui/material";
 
 const MovieRow = ({url, title}) => {
 
@@ -21,7 +22,7 @@ const MovieRow = ({url, title}) => {
 
 
     if (loading) {
-        return <h1>LOADING...</h1>
+        return <CircularProgress />
     }
 
     return (

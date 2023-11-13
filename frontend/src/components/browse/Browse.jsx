@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import Grid from '@mui/material/Unstable_Grid2';
 import "./Browse.css"
 import { useParams } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 const Browse = () => {
 
@@ -27,7 +27,7 @@ const Browse = () => {
 
 
     if (loading) {
-        return <h1>LOADING...</h1>
+        return <CircularProgress />
     }
 
     return (

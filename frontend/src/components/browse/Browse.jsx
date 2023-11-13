@@ -2,28 +2,41 @@ import MovieCard from "../moviecard/MovieCard"
 import { useEffect, useState } from "react"
 import Grid from '@mui/material/Unstable_Grid2';
 import "./Browse.css"
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Button, CircularProgress } from "@mui/material";
 
 const Browse = () => {
 
-    const { url = "" } = useParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const [movies, setMovies] = useState([])
     const [page, setPage] = useState(0)
     const [loading, setLoading] = useState(true)
     const pageSize = "size=18"
 
-    const fetchData = async () => {
-      const response = await fetch(`http://localhost:8080/api/movies/filter?page=${page}&${pageSize}${url}`)
+    const fetchData = async (p) => {
+      const response = await fetch(`http://localhost:8080/api/movies/filter?page=${p}&${pageSize}&${searchParams.toString()}`)
       const data = await response.json()
-      setMovies([...movies, ...data])
-      setPage(page+1)
+      if (p === 0) {
+        setMovies(data)
+      }
+      else {
+        setMovies([...movies, ...data])
+      }
+      setPage(p+1)
+    }
+    
+    const fetchPage = async () => {
+      fetchData(page).finally(setLoading(false))
     }
 
     useEffect(() => {
-        console.log(url)
-        fetchData().finally(setLoading(false))
+        fetchPage()
       }, [] )
+    useEffect(() => {
+      setPage(0)
+      setMovies([])
+      fetchData(0).finally(setLoading(false))
+    }, [searchParams])
 
 
     if (loading) {
@@ -49,7 +62,7 @@ const Browse = () => {
             marginTop: "20px"}}
             variant='contained' 
             disableElevation
-            onClick={fetchData}>Next
+            onClick={fetchPage}>Next
         </Button>
       </div>
     )

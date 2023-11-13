@@ -25,7 +25,7 @@ const SearchBar = () => {
             style={{width: "900px"}}
             variant='filled'>
           </TextField>
-          <Link to={`/browse/&title=${textField}`}>
+          <Link to={`/browse/${textField != "" ? `?title=${textField}` : ""}`}>
             <Button
             type='submit'
             sx={{borderRadius: "0px"}}

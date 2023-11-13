@@ -14,6 +14,7 @@ const Browse = () => {
     const pageSize = "size=18"
 
     const fetchData = async (p) => {
+      console.log("running")
       const response = await fetch(`http://localhost:8080/api/movies/filter?page=${p}&${pageSize}&${searchParams.toString()}`)
       const data = await response.json()
       if (p === 0) {
@@ -29,9 +30,6 @@ const Browse = () => {
       fetchData(page).finally(setLoading(false))
     }
 
-    useEffect(() => {
-        fetchPage()
-      }, [] )
     useEffect(() => {
       setPage(0)
       setMovies([])

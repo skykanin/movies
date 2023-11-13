@@ -15,7 +15,7 @@ const Label: Component<{ name: string, onClick: () => Set<string>}> = (props) =>
 const Search: Component = () => {
   const navigate = useNavigate();
   const [genres, setGenres] = createSignal<Set<string>>(new Set([]));
-  const [title, setTitle] = createSignal("")
+  const [title, setTitle] = createSignal<string>()
 
   const addGenre = (genre: string) => setGenres(oldGenres =>
     oldGenres.size !== 3 ? new Set([...oldGenres, genre]) : oldGenres
@@ -31,8 +31,11 @@ const Search: Component = () => {
 
   const submit = (e: Event) => {
     e.preventDefault
-    const searchParams =
-          new URLSearchParams({title: title(), limit: '8'})
+    const params: Record<string, string> = {genres: [...genres()].toString(), limit: '20'}
+    const allParams: Record<string, string> =
+      title() ? Object({...params, title: title()}) : params
+
+    const searchParams = new URLSearchParams(allParams)
     navigate(`/search?${searchParams}`)
   }
 

@@ -19,6 +19,7 @@ const Search: Component = () => {
   const fetchMovies = (initialFetch: boolean) => {
     queryMovies(
       params.title,
+      params.genres.split(','),
       {limit: params.limit,
        offset: initialFetch ? "0" : offset().toString()}
     ).then((newMovies) => {

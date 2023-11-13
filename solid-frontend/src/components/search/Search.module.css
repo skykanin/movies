@@ -76,6 +76,8 @@
   justify-content: center;
 
   transition: transform 0.3s;
+
+  cursor: pointer;
 }
 
 .label:hover {

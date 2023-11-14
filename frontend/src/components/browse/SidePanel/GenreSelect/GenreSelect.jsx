@@ -19,8 +19,7 @@ const MenuProps = {
   },
 };
 
-export default function GenreSelect({ handleFilterChange }) {
-  const [genreName, setGenreName] = React.useState([]);
+export default function GenreSelect({ handleFilterChange, genre, updateGenre }) {
   const [genres, setGenres] = React.useState([])
 
   useEffect(() => {
@@ -29,18 +28,17 @@ export default function GenreSelect({ handleFilterChange }) {
     .then(data => {
       console.log(data)
       setGenres(data)
+      setGenreName([])
     })
-  }, [])
+  }, [] )
 
   const handleChange = (event) => {
     console.log(event.target.value)
     const {
       target: { value },
     } = event;
-    setGenreName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
-    handleFilterChange("genre",event.target.value)
+    updateGenre(value)
+    handleFilterChange("genre", event.target.value)
   };
 
   return (
@@ -51,7 +49,7 @@ export default function GenreSelect({ handleFilterChange }) {
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
-          value={genreName}
+          value={genre}
           onChange={handleChange}
           input={<OutlinedInput label="Genre" />}
           renderValue={(selected) => selected.join(', ')}
@@ -59,7 +57,7 @@ export default function GenreSelect({ handleFilterChange }) {
         >
           {genres && genres.map((name) => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={genreName.indexOf(name) > -1} />
+              <Checkbox checked={genre.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}

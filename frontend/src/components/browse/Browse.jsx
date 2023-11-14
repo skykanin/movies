@@ -11,8 +11,9 @@ const Browse = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [movies, setMovies] = useState([])
     const [page, setPage] = useState(0)
-    const [loading, setLoading] = useState(true)
+    const [genre, setGenre] = useState([])
     const pageSize = "size=18"
+    const [loading, setLoading] = useState(true)
 
     const fetchData = async (p) => {
       const response = await fetch(`http://localhost:8080/api/movies/filter?page=${p}&${pageSize}&${searchParams.toString()}`)
@@ -34,6 +35,9 @@ const Browse = () => {
       setPage(0)
       setMovies([])
       fetchData(0).finally(setLoading(false))
+      if (searchParams.size === 0) {
+        setGenre([])
+      }
     }, [searchParams])
 
     function handleFilterChange (key , value) {
@@ -48,13 +52,18 @@ const Browse = () => {
         })
       }
 
+      function updateGenre(value) {
+        setGenre(value)
+      }
+
     if (loading) {
         return <CircularProgress />
     }
     return (
       <div className="center-container" style={{marginTop: "70px", marginLeft: "240px"}}>
         <div className="sidepanel-container">
-        <SidePanel handleFilterChange={ (key, value) => handleFilterChange(key, value)}/>
+        <SidePanel handleFilterChange={ (key, value) => handleFilterChange(key, value)}
+        genre={genre} updateGenre={value => updateGenre(value)}/>
         </div>
         <div className="grid-container">
           <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 12, md: 12 }}>

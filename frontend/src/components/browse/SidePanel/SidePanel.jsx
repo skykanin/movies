@@ -9,7 +9,7 @@ import GenreSelect from './GenreSelect/GenreSelect';
 
 const drawerWidth = 300;
 
-export default function SidePanel({ handleFilterChange }) {
+export default function SidePanel({ handleFilterChange, genre, updateGenre}) {
   return (
       <Drawer
         sx={{
@@ -33,7 +33,8 @@ export default function SidePanel({ handleFilterChange }) {
         <Divider />
         <List>
           <ListItem key="genre" disablePadding>
-            <GenreSelect handleFilterChange={(key,value) => handleFilterChange(key, value)}/>
+            <GenreSelect handleFilterChange={(key,value) => handleFilterChange(key, value)} 
+            genre={genre} updateGenre={value => updateGenre(value)}/>
           </ListItem>
         </List>
       </Drawer>

@@ -52,24 +52,24 @@ const Browse = () => {
         })
       }
 
-      function updateGenre(value) {
-        setGenre(value)
-      }
+    function updateGenre(value) {
+      setGenre(value)
+    }
 
     if (loading) {
         return <CircularProgress />
     }
     return (
-      <div className="center-container" style={{marginTop: "70px", marginLeft: "240px"}}>
+      <div className="center-container" style={{marginTop: "100px", marginLeft: "300px"}}>
         <div className="sidepanel-container">
         <SidePanel handleFilterChange={ (key, value) => handleFilterChange(key, value)}
         genre={genre} updateGenre={value => updateGenre(value)}/>
         </div>
         <div className="grid-container">
-          <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 12, md: 12 }}>
+          <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 12, md: 12 }}>
             {movies.map(movie => (
               <Grid xs={1} sm={3} md={2} key={movie.movieID}>
-                <MovieCard movie={movie}/>
+                <MovieCard movie={movie} height={250}/>
               </Grid>
             ))}
           </Grid>

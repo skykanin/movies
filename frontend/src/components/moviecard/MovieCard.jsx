@@ -8,15 +8,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({movie, height = 180}) => {
     return (
-        <Card sx={{ maxWidth: "150px"}}>
+        <Card sx={{ maxWidth: "150px", border: "1px solid rgb(56, 61, 63)"}}>
           <CardActionArea component={Link} to={`/movie/${movie.movieID}`}>
             <CardMedia
               component="img"
               image={movie.posterLink}
               alt="Movie Poster"
-              sx={{objectFit: "cover", height: "180px"}}
+              sx={{objectFit: "cover", height: `${height}px`}}
             />
             <CardContent sx={{padding: "10px"}}>
             <Box

@@ -32,7 +32,7 @@ export default function SidePanel({ handleFilterChange }) {
         </List>
         <Divider />
         <List>
-          <ListItem key="genre">
+          <ListItem key="genre" disablePadding>
             <GenreSelect handleFilterChange={(key,value) => handleFilterChange(key, value)}/>
           </ListItem>
         </List>

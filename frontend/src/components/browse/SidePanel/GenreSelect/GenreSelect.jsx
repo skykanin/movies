@@ -14,7 +14,7 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 10 + ITEM_PADDING_TOP,
-      width: 250,
+      width: 280,
     },
   },
 };
@@ -39,13 +39,13 @@ export default function GenreSelect({ handleFilterChange }) {
     } = event;
     setGenreName(
       typeof value === 'string' ? value.split(',') : value,
-);
+    );
     handleFilterChange("genre",event.target.value)
   };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 250 }}>
+      <FormControl sx={{ m: 1, width: 280 }}>
         <InputLabel id="demo-multiple-checkbox-label">Genre</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"

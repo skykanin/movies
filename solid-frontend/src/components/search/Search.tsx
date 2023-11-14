@@ -31,11 +31,11 @@ const Search: Component = () => {
 
   const submit = (e: Event) => {
     e.preventDefault
-    const params: Record<string, string> = {genres: [...genres()].toString(), limit: '20'}
-    const allParams: Record<string, string> =
-      title() ? Object({...params, title: title()}) : params
+    const params = Object({limit: '20'})
+    if (genres().size > 0) params.genres = [...genres()].toString()
+    if (title()) params.title = title()
 
-    const searchParams = new URLSearchParams(allParams)
+    const searchParams = new URLSearchParams(params)
     navigate(`/search?${searchParams}`)
   }
 

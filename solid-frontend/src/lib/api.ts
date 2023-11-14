@@ -8,16 +8,15 @@ export const queryMovie = (id: number): Promise<Movie> =>
 
 export interface Pagination { limit: string, offset: string }
 
-export const queryMovies = (title?: string, genres?: Array<string>, paginate?: Pagination): Promise<Array<Movie>> => {
+export const queryMovies = (title: string = '', genres: Array<string> = [], paginate: Pagination): Promise<Array<Movie>> => {
+    const params = Object({ title, page: paginate.offset, size: paginate.limit })
+    if (genres.length > 0) params.genre = genres
+
     const url =
         new URL("/api/movies/filter?", baseUrl).toString()
-        + new URLSearchParams({
-            title: title || '',
-            genre: genres?.toString(),
-            page: paginate?.offset,
-            size: paginate?.limit
-        }).toString()
+        + new URLSearchParams(params).toString()
 
+    console.log("Queried url:", url)
     return fetch(url).then(async res => await res.json())
 }
 

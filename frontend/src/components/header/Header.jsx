@@ -9,7 +9,7 @@ import { NavbarBrand, NavbarCollapse, NavbarToggle } from 'react-bootstrap'
 const Header = () => {
  
     return (
-        <Navbar variant="dark" expand="lg">
+        <Navbar variant="dark" expand="lg" style={{position: "fixed", width: "100%", zIndex: "2000"}}>
             <Container fluid>
                 <NavbarBrand as={NavLink} to="home" style={{"color":'white'}}>
                     <FontAwesomeIcon icon ={faVideo}/> qwikk.movies

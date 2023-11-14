@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import MoviePage from './components/moviepage/MoviePage';
 import Browse from './components/browse/Browse';
 import { createTheme, ThemeProvider } from '@mui/material';
+import SidePanel from './components/browse/SidePanel/SidePanel';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
             <Route path="" element={<Navigate replace to="home"/>}/>
             <Route path="home" element={<Home />} />
             <Route path="movie/:id" element={<MoviePage />} />
-            <Route path="browse/:url?" element={<Browse />} />
+            <Route path="browse/" element={<Browse />} />
           </Routes>
         </ThemeProvider>
       </div>

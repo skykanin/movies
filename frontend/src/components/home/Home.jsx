@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchBar from '../searchbar/SearchBar'
-import Welcome from '../welcome/Welcome'
+import SearchBar from './Search/SearchBar'
+import Welcome from './Welcome/Welcome'
 import MovieRow from '../movierow/MovieRow'
 import "./home.css"
 

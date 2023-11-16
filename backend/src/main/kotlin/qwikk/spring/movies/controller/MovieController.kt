@@ -29,8 +29,9 @@ class MovieController(private val service: MovieService) {
     fun findFilteredMovie(
         @RequestParam(required = false) title: String?,
         @RequestParam(required = false) genre: List<String>?,
+        @RequestParam(required = false) actor: List<String>?,
         @RequestParam(defaultValue = "0") page: String,
-        @RequestParam(defaultValue = "1001") size: String) = service.findByCustomQuery(title,genre,page,size)
+        @RequestParam(defaultValue = "1001") size: String) = service.findByCustomQuery(title,genre,actor,page,size)
 
 
     @GetMapping("/top10/rated")

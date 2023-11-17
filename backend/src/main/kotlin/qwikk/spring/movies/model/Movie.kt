@@ -48,7 +48,7 @@ class Movie(
     val noOfVotes:Int = -1,
 
     @Convert(converter = GrossConverter::class)
-    val gross:String = "",
+    val gross:Int = -1,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

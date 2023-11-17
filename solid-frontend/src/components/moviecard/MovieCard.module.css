@@ -17,6 +17,7 @@
 .poster {
   align-self: center;
   max-width: 10rem;
+  position: relative;
 }
 
 .image {

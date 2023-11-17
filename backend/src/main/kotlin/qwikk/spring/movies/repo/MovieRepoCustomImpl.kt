@@ -2,7 +2,10 @@ package qwikk.spring.movies.repo
 
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
+import jakarta.persistence.criteria.CriteriaBuilder
+import jakarta.persistence.criteria.CriteriaQuery
 import jakarta.persistence.criteria.Predicate
+import jakarta.persistence.criteria.Root
 import org.springframework.stereotype.Repository
 import qwikk.spring.movies.model.Actor
 import qwikk.spring.movies.model.Genre
@@ -14,7 +17,8 @@ class MovieRepoCustomImpl : MovieRepoCustom {
     @PersistenceContext
     lateinit var entityManager: EntityManager
 
-    override fun findByCustomQuery(title: String?, genreList: List<String>?, actorList: List<String>?, sort: String?,
+    override fun findByCustomQuery(title: String?, genreList: List<String>?, actorList: List<String>?,
+                                   director: String?, sort: String?,
                                    page: Int, size: Int): List<Movie> {
 
         val cb = entityManager.criteriaBuilder
@@ -55,6 +59,9 @@ class MovieRepoCustomImpl : MovieRepoCustom {
 
         if (title != null) {
             predicates.add(cb.like(cb.lower(root.get("seriesTitle")), "%${title.lowercase()}%"))
+        }
+        if (director != null) {
+            predicates.add(cb.like(cb.lower(root.get("director")), "%${director.lowercase()}%"))
         }
 
         query.select(root)

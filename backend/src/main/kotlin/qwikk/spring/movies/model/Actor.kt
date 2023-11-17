@@ -5,8 +5,12 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "actor")
 class Actor (
-    @Column(name = "actorid") @Id var actorID: Int = -1,
-    @Column(name = "name") var name: String = ""
+    @Column(name = "actorid")
+    @Id
+    var actorID: Int = -1,
+
+    @Column(name = "name")
+    var name: String = ""
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

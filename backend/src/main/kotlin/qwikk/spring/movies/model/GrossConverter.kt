@@ -1,4 +1,4 @@
-package qwikk.spring.movies.service
+package qwikk.spring.movies.model
 
 import jakarta.persistence.AttributeConverter
 

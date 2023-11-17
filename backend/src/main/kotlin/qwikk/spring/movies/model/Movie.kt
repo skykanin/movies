@@ -1,8 +1,6 @@
 package qwikk.spring.movies.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
-import qwikk.spring.movies.service.GrossConverter
 
 
 @Entity

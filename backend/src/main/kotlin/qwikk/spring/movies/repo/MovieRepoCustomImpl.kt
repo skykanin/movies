@@ -61,7 +61,7 @@ class MovieRepoCustomImpl : MovieRepoCustom {
         query.where(*predicates.toTypedArray())
         when (sort) {
             "imdbRating" -> query.orderBy(cb.desc(root.get<Double>(sort)))
-            "noOfVotes", "metaScore", "releasedYear" -> query.orderBy(cb.desc(root.get<Int>(sort)))
+            "noOfVotes", "metaScore", "releasedYear", "gross" -> query.orderBy(cb.desc(root.get<Int>(sort)))
         }
 
 

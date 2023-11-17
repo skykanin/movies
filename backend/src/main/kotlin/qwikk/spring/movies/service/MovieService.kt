@@ -7,7 +7,7 @@ import qwikk.spring.movies.repo.GenreRepository
 import qwikk.spring.movies.repo.MovieRepository
 
 @Service
-class MovieService() {
+class MovieService {
 
     @Autowired
     lateinit var movieRepository: MovieRepository

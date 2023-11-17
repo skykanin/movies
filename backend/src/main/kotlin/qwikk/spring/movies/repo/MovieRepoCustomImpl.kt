@@ -38,7 +38,6 @@ class MovieRepoCustomImpl : MovieRepoCustom {
             )
         }
 
-
         if (title != null) {
             predicates.add(cb.like(cb.lower(root.get("seriesTitle")), "%${title.lowercase()}%"))
         }
@@ -52,7 +51,6 @@ class MovieRepoCustomImpl : MovieRepoCustom {
             "imdbRating" -> query.orderBy(cb.desc(root.get<Double>(sort)))
             "noOfVotes", "metaScore", "releasedYear", "gross" -> query.orderBy(cb.desc(cb.coalesce(root.get(sort), -1)))
         }
-
 
         val typedQuery = entityManager.createQuery(query)
         typedQuery.setFirstResult(page * size)

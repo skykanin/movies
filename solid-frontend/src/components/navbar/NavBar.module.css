@@ -1,15 +1,17 @@
 .navbar {
   background-color: var(--secondary);
   color: white;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 3rem;
+  padding: 0 1rem;
 }
 
 .logo {
-  width: 3rem;
+  fill: white;
+  height: 4rem;
+  width: 100%;
 }
 
 .buttons {

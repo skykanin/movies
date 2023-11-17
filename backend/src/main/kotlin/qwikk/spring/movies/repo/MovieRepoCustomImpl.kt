@@ -27,33 +27,15 @@ class MovieRepoCustomImpl : MovieRepoCustom {
         val predicates = mutableListOf<Predicate>()
 
         if (genreList != null) {
-            val subQuery = query.subquery(Movie::class.java)
-            val subRoot = subQuery.from(Movie::class.java)
-            val subGenreJoin = subRoot.join<Movie, Genre>("genre")
-
-            val genrePredicate: Predicate = subGenreJoin.get<String>("name").`in`(genreList)
-
-            subQuery.select(subRoot)
-            subQuery.where(genrePredicate)
-            subQuery.groupBy(subRoot)
-            subQuery.having(cb.greaterThanOrEqualTo(cb.count(subGenreJoin), genreList.size.toLong()))
-
-            predicates.add(root.`in`(subQuery))
+            predicates.add(
+                compareSubJoinToList<Genre>(cb, query, root, genreList, "genre", "name")
+            )
         }
 
         if (actorList != null) {
-            val subQuery = query.subquery(Movie::class.java)
-            val subRoot = subQuery.from(Movie::class.java)
-            val subActorJoin = subRoot.join<Movie, Actor>("starring")
-
-            val actorPredicate: Predicate = subActorJoin.get<String>("name").`in`(actorList)
-
-            subQuery.select(subRoot)
-            subQuery.where(actorPredicate)
-            subQuery.groupBy(subRoot)
-            subQuery.having(cb.greaterThanOrEqualTo(cb.count(subActorJoin), actorList.size.toLong()))
-
-            predicates.add(root.`in`(subQuery))
+            predicates.add(
+                compareSubJoinToList<Actor>(cb, query, root, actorList, "starring", "name")
+            )
         }
 
 
@@ -77,5 +59,22 @@ class MovieRepoCustomImpl : MovieRepoCustom {
         typedQuery.setMaxResults(size)
 
         return typedQuery.resultList
+    }
+
+    private fun <T> compareSubJoinToList(cb: CriteriaBuilder, query: CriteriaQuery<Movie>, root: Root<Movie>,
+                                         list: List<String>, joinedWith: String, onAttribute: String): Predicate {
+
+        val subQuery = query.subquery(Movie::class.java)
+        val subRoot = subQuery.from(Movie::class.java)
+        val subGenreJoin = subRoot.join<Movie, T>(joinedWith)
+
+        val genrePredicate: Predicate = subGenreJoin.get<String>(onAttribute).`in`(list)
+
+        subQuery.select(subRoot)
+        subQuery.where(genrePredicate)
+        subQuery.groupBy(subRoot)
+        subQuery.having(cb.greaterThanOrEqualTo(cb.count(subGenreJoin), list.size.toLong()))
+
+        return root.`in`(subQuery)
     }
 }

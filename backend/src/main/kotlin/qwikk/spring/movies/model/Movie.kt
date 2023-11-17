@@ -47,8 +47,7 @@ class Movie(
     @Column(name = "no_of_votes")
     val noOfVotes:Int = -1,
 
-    @Convert(converter = GrossConverter::class)
-    val gross:Int = -1,
+    val gross:Int? = -1,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

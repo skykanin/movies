@@ -64,8 +64,8 @@ const CircleProgress: Component<CircleProgressProps> = (props) => {
       style={{
         position: 'absolute',
         display: 'inline-flex',
-        'margin-top': `${offsetY}px`,
-        'margin-left': `${offsetX}px`
+        'top': `${offsetY}px`,
+        'left': `${offsetX}px`,
       }}
     >
       <span>
@@ -98,16 +98,16 @@ const MovieCard: Component<MovieCardProps> = (props) => (
     {(movie) => (
       <div class={style.movie_card}>
         <div class={style.poster}>
-          <img class={style.image} src={movie().posterLink} />
           <CircleProgress
             style={{
               size: 40,
               strokeWidth: 3,
-              offsetX: -40,
-              offsetY: 0
+              offsetX: 115,
+              offsetY: 3
             }}
             progress={movie().imdbRating}
           />
+        <img class={style.image} src={movie().posterLink} />
         </div>
         <div class={style.movie_info}>
           <span>{movie().seriesTitle}</span>

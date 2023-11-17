@@ -7,6 +7,7 @@
   gap: 1rem;
   max-width: 10rem;
   transition: transform 0.2s;
+  position: relative;
 }
 
 .movie_card:hover {

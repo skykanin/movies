@@ -14,7 +14,9 @@ class MovieRepoCustomImpl : MovieRepoCustom {
     @PersistenceContext
     lateinit var entityManager: EntityManager
 
-    override fun findByCustomQuery(title: String?, genreList: List<String>?, actorList: List<String>?, page: Int, size: Int): List<Movie> {
+    override fun findByCustomQuery(title: String?, genreList: List<String>?, actorList: List<String>?, sort: String?,
+                                   page: Int, size: Int): List<Movie> {
+
         val cb = entityManager.criteriaBuilder
         val query = cb.createQuery(Movie::class.java)
         val root = query.from(Movie::class.java)
@@ -57,6 +59,10 @@ class MovieRepoCustomImpl : MovieRepoCustom {
 
         query.select(root)
         query.where(*predicates.toTypedArray())
+        when (sort) {
+            "imdbRating" -> query.orderBy(cb.desc(root.get<Double>(sort)))
+            "noOfVotes", "metaScore", "releasedYear" -> query.orderBy(cb.desc(root.get<Int>(sort)))
+        }
 
 
         val typedQuery = entityManager.createQuery(query)

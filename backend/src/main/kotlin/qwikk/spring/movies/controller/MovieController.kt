@@ -25,7 +25,7 @@ class MovieController(private val service: MovieService) {
     fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
-    @GetMapping("/filter")
+    @GetMapping()
     fun findFilteredMovie(
         @RequestParam(required = false) title: String?,
         @RequestParam(required = false) genre: List<String>?,
@@ -42,7 +42,7 @@ class MovieController(private val service: MovieService) {
     @GetMapping("/top10/popular")
     fun findTop10Popular() = service.findTop10Popular()
 
-    @GetMapping("/id/{movieID}")
+    @GetMapping("/{movieID}")
     fun findById(@PathVariable movieID: Long) = service.findMovieId(movieID)
 
     @GetMapping("/genre/all")
